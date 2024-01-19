@@ -15,8 +15,8 @@ if not os.path.isfile(f"{root_directory}/configs.json"):  # Check if the configs
     quit(101)
 
 # Loading and setting up the settings file
-with open(f'{root_directory}/configs.json', 'r') as configsfile:
-    settings = json.load(configsfile)
+with open(f'{root_directory}/configs.json', 'r') as configs:
+    settings = json.load(configs)
 
 # Setting up some variables from the settings file
 Cloudflare_Token = settings["Cloudflare_Token"]

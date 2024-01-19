@@ -12,10 +12,10 @@ Discord_Enabled = input("\nWould you like to recieve notifications on Discord us
 if Discord_Enabled:
     print("\n\nDiscord settings:\n")
     Webhook_URL = input("\nWhat's your Discord webhook URL?\n")
+    Discord_ID = input("\nIf you'd like to be pinged for any errors, please provide your Discord user ID (Default: Off)\n")
     System_name = input("\nWhat's the name of your server's OS? (Default: \"OpenMediaVault\")\n")
     System_icon = input("\nPlease provide a direct URL to the profile picture you'd like your OS notifications to have (Default: OMV logo)\n")
     System_color = input("\nWhat do you want the color of your OS notifications to be? (HEX code, Default: #63A9DF)\n")
-    Discord_ID = input("\nIf you'd like to be pinged for any errors, please provide your Discord user ID (Default: Off)\n")
     # Set everything to default if none of these were provided
     if System_name == "":
         System_name = "OpenMediaVault"
@@ -28,13 +28,13 @@ if Discord_Enabled:
         print("\nDiscord notifications were disabled as the Webhook URL wasn't set\n")
 else:
     print("\nSkipping Discord settings and disabling notifications.\n")
-    Webhook_URL = ""
+    Webhook_URL = ""  # Setting some empty variables just so it doesn't break without Discord
     System_name = ""
     System_icon = ""
     System_color = ""
-    Discord_ID = ""  # Setting some empty variables just so it doesn't break without Discord
+    Discord_ID = ""
 
-# Filtering some inputs
+# Filtering and processing some inputs
 if Discord_Enabled:
     Discord_ID = Discord_ID.replace("<", "")  # vv Make sure no angled brackets or @s are in the User ID
     Discord_ID = Discord_ID.replace("@", "")
